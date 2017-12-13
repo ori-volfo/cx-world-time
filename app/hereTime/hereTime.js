@@ -9,6 +9,18 @@ angular.module('myApp.hereTime', ['ngRoute'])
   });
 }])
 
-.controller('HereTimeCtrl', [function() {
-	
+.controller('HereTimeCtrl', ['$scope','$interval',function($scope,$interval) {
+  var vm = this;
+
+    $scope.time = new Date();
+
+    $interval(function () {
+        var now = new Date().getTime();
+        now += 7200*1000;
+        var timeRaw = new Date(now);
+        $scope.time = timeRaw;
+    }, 1000);
+
+
+
 }]);
