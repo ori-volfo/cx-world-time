@@ -9,7 +9,7 @@
     <div class="time">{{time | date: format}}</div>
     <div class="select-country">
 
-        <select ng-model="countryIndex"
+        <select ng-show="zonesPopulated" ng-model="countryIndex"
                 ng-change="selectCountry(countryIndex)"
                 ng-option="value as key for (key , value) in $scope.zones">
             <option ng-repeat="(key, zone) in zones" value={{key}}>{{zone.countryName}}</option>
