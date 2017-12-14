@@ -2,12 +2,11 @@
     <img class="clock-img" ng-src="https://d30y9cdsu7xlg0.cloudfront.net/png/7197-200.png" alt="">
     <div class="time">{{time | date: format}}</div>
     <div class="select-country">
-
         <select class="form-control" ng-show="zonesPopulated" ng-model="countryIndex"
                 ng-change="selectCountry(countryIndex)"
                 ng-option="value as key for (key , value) in $scope.zones">
             <option ng-repeat="(key, zone) in zones" value={{key}}>{{zone.countryName}}</option>
         </select>
-
     </div>
+    <img ng-src="../assets/loading_spinner.gif" ng-hide="zonesPopulated" width="100"/>
 </div>
