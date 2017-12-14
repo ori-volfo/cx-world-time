@@ -9,9 +9,12 @@ angular.module('myApp.hereTime', ['ngRoute'])
   });
 }])
 
-.controller('HereTimeCtrl', ['$scope','$interval',function($scope,$interval) {
-  var vm = this;
+.controller('HereTimeCtrl', ['$scope','$interval','timeFormatFactory',function($scope,$interval,timeFormatFactory) {
 
+    $scope.factory = timeFormatFactory;
+    $scope.$watch('factory.getFormat()',function(newFormat){
+        $scope.format = newFormat;
+    });
     $scope.time = new Date();
 
     $interval(function () {

@@ -1,15 +1,9 @@
 <div ng-controller="WorldTimeCtrl">
-    <select ng-model="format">
-        <option value="yyyy-M-d HH:mm:ss">yyyy-M-d HH:mm:ss</option>
-        <option value="EEEE, MMMM d, yyyy hh:mm:ss a">EEEE, MMMM d, yyyy hh:mm:ss a</option>
-        <option value="MMM d, yyyy hh:mm:ss a">MMM d, yyyy hh:mm:ss a</option>
-        <option value="fullDate">fullDate</option>
-        <option value="fullDate">medium</option>
-    </select>
+    <img class="clock-img" ng-src="https://d30y9cdsu7xlg0.cloudfront.net/png/7197-200.png" alt="">
     <div class="time">{{time | date: format}}</div>
     <div class="select-country">
 
-        <select ng-show="zonesPopulated" ng-model="countryIndex"
+        <select class="form-control" ng-show="zonesPopulated" ng-model="countryIndex"
                 ng-change="selectCountry(countryIndex)"
                 ng-option="value as key for (key , value) in $scope.zones">
             <option ng-repeat="(key, zone) in zones" value={{key}}>{{zone.countryName}}</option>

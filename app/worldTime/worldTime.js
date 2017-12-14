@@ -9,9 +9,13 @@ angular.module('myApp.worldTime', ['ngRoute'])
   });
 }])
 
-.controller('WorldTimeCtrl', ['$scope','$http','$interval',function($scope, $http,$interval) {
+.controller('WorldTimeCtrl', ['$scope','$http','$interval','timeFormatFactory','timeZones',function($scope, $http,$interval,timeFormatFactory,timeZones) {
     var gmtOffset = 0;
-    $scope.format = "yyyy-M-d HH:mm:ss";
+    $scope.factory = timeFormatFactory;
+    $scope.$watch('factory.getFormat()',function(newFormat){
+        $scope.format = newFormat;
+    });
+
     $scope.zones = [];
     $scope.zonesPopulated = false;
     $scope.time = new Date();
@@ -24,7 +28,7 @@ angular.module('myApp.worldTime', ['ngRoute'])
         $scope.time = timeRaw;
     }, 1000);
 
-    $http.get('http://dev.cellxpert.com/test/worldtime/').then(function(response){
+    timeZones.getData().then(function(response){
         $scope.zones = response.data.zones;
         $scope.zonesPopulated = true;
     });

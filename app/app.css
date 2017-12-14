@@ -2,24 +2,45 @@
 
 .menu {
   list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+  padding: 10px;
 }
-
-.menu:before {
-  content: "[";
+.top-navbar > ul {
+  display: inline-block;
 }
-
-.menu:after {
-  content: "]";
-}
-
 .menu > li {
   display: inline;
+  margin: 5px;
 }
 
 .menu > li + li:before {
-  content: "|";
   padding-right: 0.3em;
+}
+
+.menu a{
+  text-decoration: none;
+  color: #000;
+}
+.menu button{
+  border-radius: 20px;
+}
+.top-navbar .time-format{
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.main{
+  text-align: center;
+  margin-top:80px;
+}
+
+.main .select-country {
+  width: 300px;
+  margin: 30px auto;
+}
+
+.clock-img{
+  width: 50px;
+  margin: 30px;
 }

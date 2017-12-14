@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.hereTime',
   'myApp.worldTime',
+  'myApp.timeFormat',
   'myApp.services'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
