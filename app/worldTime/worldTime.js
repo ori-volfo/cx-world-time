@@ -24,8 +24,7 @@ angular.module('myApp.worldTime', ['ngRoute'])
     $interval(function () {
         var now = new Date().getTime();
         now += gmtOffset*1000 + UTCoffset;
-        var timeRaw = new Date(now);
-        $scope.time = timeRaw;
+        $scope.time = new Date(now);
     }, 1000);
 
     timeZones.getData().then(function(response){

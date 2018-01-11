@@ -19,9 +19,8 @@ angular.module('myApp.hereTime', ['ngRoute'])
 
     $interval(function () {
         var now = new Date().getTime();
-        now += 7200*1000;
-        var timeRaw = new Date(now);
-        $scope.time = timeRaw;
+        // now += 7200*1000;
+        $scope.time = new Date(now);
     }, 1000);
 
 
